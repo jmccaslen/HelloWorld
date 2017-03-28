@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>ASP.NET</h1>
+    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p id="helloWorldDispaly"></p>
+</div>
+@Scripts.Render("~/bundles/jquery")
+<script>
+$(document).ready(function () {
+
+    $.ajax({
+        url: 'http://localhost:49690/api/HelloWorld',
+        type: 'GET',
+        dataType: 'json',
+        contentType: 'application/json; charset=utf-8',
+        //data: JSON.stringify(Login),
+        success: function (data) {
+            console.write('worked');
+            $("#helloWorldDispaly").html('Hello World');
+        }
+    });
+
+});
+</script>
